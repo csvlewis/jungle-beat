@@ -84,6 +84,10 @@ class LinkedList
     @data.pop
   end
 
+  def find(position, elements)
+    @data[position..(position + elements - 1)].join(' ')
+  end
+
   def to_string
     strings = @data.map(&:to_s)
     strings.join(' ')
