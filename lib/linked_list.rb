@@ -1,4 +1,5 @@
 require './lib/node.rb'
+require 'pry'
 
 class LinkedList
   attr_reader :head
@@ -7,11 +8,16 @@ class LinkedList
   end
 
   def append(data)
-    @head = Node.new(data)
+    node = Node.new(data)
+    if @head.nil?
+      @head = node
+    else
+      @head.set_next(node)
+    end
   end
 
   def count
-    if head.nil?
+    if @head.nil?
       0
     else
       1
