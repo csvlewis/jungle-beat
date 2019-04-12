@@ -66,6 +66,24 @@ class LinkedList
     end
   end
 
+  def pop
+    if @count.zero?
+    elsif @count == 1
+      @head = nil
+    elsif @count == 2
+      @head.clear_nodes
+    elsif @count > 2
+      array = []
+      (@count - 2).times do
+        array << 'next_node'
+      end
+      searched_node = @head.chain_methods(array)
+      searched_node.clear_nodes
+    end
+    @count -= 1 unless count.zero?
+    @data.pop
+  end
+
   def to_string
     strings = @data.map(&:to_s)
     strings.join(' ')
