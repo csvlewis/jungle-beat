@@ -18,7 +18,8 @@ class Node
     @next_node = nil
   end
 
-  def send_chain(array)
-    array.inject(self) {|o, a| o.send(a) }
+  def chain_methods(array)
+    # performs a chain of methods listed in an array
+    array.inject(self) { |o, a| o.send(a) }
   end
 end

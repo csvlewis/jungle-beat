@@ -48,7 +48,7 @@ class LinkedList
       (position - 1).times do
         array << 'next_node'
       end
-      searched_node = @head.send_chain(array)
+      searched_node = @head.chain_methods(array)
       new_node.set_next(searched_node.next_node)
       searched_node.clear_nodes
       searched_node.set_next(new_node)
@@ -58,7 +58,13 @@ class LinkedList
     end
   end
 
-
+  def includes?(value)
+    if @data.include?(value)
+      true
+    else
+      false
+    end
+  end
 
   def to_string
     strings = @data.map(&:to_s)
