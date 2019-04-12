@@ -2,9 +2,12 @@ require './lib/node.rb'
 require 'pry'
 
 class LinkedList
-  attr_reader :head
+  attr_reader :head,
+              :count
   def initialize
     @head = nil
+    @count = 0
+    @data = []
   end
 
   def append(data)
@@ -14,17 +17,13 @@ class LinkedList
     else
       @head.set_next(node)
     end
-  end
-
-  def count
-    if @head.nil?
-      0
-    else
-      1
-    end
+    @count += 1
+    @data << node.data
+    data
   end
 
   def to_string
-    @head.data.to_s
+    strings = @data.map(&:to_s)
+    strings.join(' ')
   end
 end
