@@ -13,4 +13,12 @@ class Node
       @next_node.set_next(node)
     end
   end
+
+  def clear_nodes
+    @next_node = nil
+  end
+
+  def send_chain(array)
+    array.inject(self) {|o, a| o.send(a) }
+  end
 end
