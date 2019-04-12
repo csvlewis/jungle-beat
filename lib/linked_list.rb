@@ -22,6 +22,15 @@ class LinkedList
     data
   end
 
+  def prepend(data)
+    node = Node.new(data)
+    node.set_next(@head) if @head
+    @head = node
+    @count += 1
+    @data.unshift(node.data)
+    data
+  end
+
   def to_string
     strings = @data.map(&:to_s)
     strings.join(' ')
